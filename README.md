@@ -1,268 +1,175 @@
-# 记宝盒 后端服务（jbh-ucmao-backend）
+<div align="center">
 
-## 项目简介
+<img src="logo.png" width="120" height="auto" alt="记宝盒 Logo">
 
-**jbh-ucmao-backend** 是 记宝盒 微信小程序的后端服务，提供物品管理、用户认证、数据统计和导出等核心功能。
+# 📦 记宝盒 后端(jbh-ucmao-backend)
 
-> 本仓库提供记宝盒小程序的后端服务。如果你需要前端代码，请参考[前端仓库链接](https://github.com/ucmao/jbh-ucmao-mp)
+**轻量化物品全生命周期管理后端系统**
 
-## 📱 立即体验与总览 ✨
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE) [![Python Version](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/) [![MySQL](https://img.shields.io/badge/database-MySQL-orange.svg)](https://www.mysql.com/) [![Flask](https://img.shields.io/badge/framework-Flask%203.0-lightgrey.svg)](https://flask.palletsprojects.com/)
 
-欢迎扫码体验本项目的实际功能和效果。
+<p align="center">
+<a href="#📱-立即体验">在线体验</a> •
+<a href="#💎-核心业务逻辑">业务逻辑</a> •
+<a href="#🚀-快速开始">部署指南</a> •
+<a href="[https://github.com/ucmao/jbh-ucmao-backend/issues](https://www.google.com/search?q=https://github.com/ucmao/jbh-ucmao-backend/issues)">提交Bug</a>
+</p>
 
-| 扫码体验正式版 | 后端服务仓库 |
-|:---:|:---:|
-| ![记宝盒太阳码](qr_code.jpg)<br>🚀 [记宝盒前端服务](https://github.com/ucmao/jbh-ucmao-mp) | 当前仓库 |
+记宝盒是一款专为个人物品管理打造的后端服务系统。
 
-## 技术栈
+通过“物品入库 -> 成本计算 -> 数据可视化 -> 报表导出”的链路，助你清晰掌握每一件物品的持有价值。
 
-- **框架**：Flask 3.0.3
-- **数据库**：MySQL
-- **ORM**：PyMySQL
-- **认证**：微信小程序登录
-- **日志**：Python logging
-- **部署**：支持 Gunicorn、Uvicorn 等 WSGI/ASGI 服务器
+</div>
 
-## 项目结构
+---
 
-```
-jbh-ucmao-backend/
-├── api/                    # API 路由模块
-│   ├── export/             # 数据导出模块
-│   │   ├── __init__.py
-│   │   └── routes.py
-│   ├── items/              # 物品管理模块
-│   │   ├── __init__.py
-│   │   └── routes.py
-│   ├── login/              # 用户登录模块
-│   │   ├── __init__.py
-│   │   └── routes.py
-│   ├── report/             # 数据统计模块
-│   │   ├── __init__.py
-│   │   └── routes.py
-│   ├── users/              # 用户管理模块
-│   │   ├── __init__.py
-│   │   └── routes.py
-│   └── __init__.py
-├── configs/                # 配置文件
-│   ├── general_constants.py  # 通用常量
-│   └── logging_config.py     # 日志配置
-├── static/                 # 静态资源
-│   ├── default/            # 默认资源
-│   └── icons/              # 分类图标
-├── .env.example            # 环境变量示例
-├── .gitignore              # Git 忽略文件
-├── app.py                  # 应用入口
-├── requirements.txt        # 依赖列表
-└── schema.sql              # 数据库结构文件
-```
+## 📱 立即体验
 
-## 环境要求
+为了方便您快速了解系统功能，我们提供了微信小程序演示版与配套的前端项目：
 
-- Python 3.8+
-- MySQL 5.7+
-- pip 20.0+
+* **🧩 小程序端（正式版）**：请扫描下方太阳码进行体验
+* **🎨 前端源码**: [https://github.com/ucmao/jbh-ucmao-mp](https://github.com/ucmao/jbh-ucmao-mp)
 
-## 快速开始
+<p align="center">
+<img src="qr_code.jpg" width="200" alt="记宝盒太阳码">
+</p>
 
-### 1. 克隆仓库
+> **协作提示**：本仓库仅提供后端 API 服务。如需构建完整应用，请配合上述前端仓库使用。
+
+---
+
+## 💎 核心业务逻辑
+
+* **全生命周期追踪**：支持物品从“购入价格”到“退役残值”的全程记录，自动计算 **日均使用成本**。
+* **微信生态集成**：原生对接微信小程序登录协议，实现用户无感化的身份认证与资源隔离。
+* **智能数据资产化**：
+* **统计报表**：自动聚合分类数据，生成用户物品价值统计报告。
+* **一键导出**：支持将个人物品池导出为标准 CSV 格式，方便本地备份或进阶分析。
+
+
+* **模块化 API 设计**：严格遵循 RESTful 规范，涵盖用户、物品、分类、统计及导出五个核心模块。
+
+---
+
+## 💾 核心模块矩阵
+
+| 模块名称 | 功能描述 | 状态 |
+| --- | --- | --- |
+| **用户认证** | 微信小程序登录、OpenID 唯一标识提取 | ✅ 稳定 |
+| **物品管理** | 增删改查、日均价格计算、分类图标匹配 | ✅ 稳定 |
+| **统计中心** | 物品数量分布、资产价值统计报告 | ✅ 稳定 |
+| **数据出口** | 用户数据 CSV 异步生成与下载 | ✅ 稳定 |
+| **静态资源** | 多维度分类图标库（内置于 static 目录） | ✅ 完善 |
+
+---
+
+## 🔌 API 核心接口概览
+
+**认证接口**：`POST /api/login` (参数：`code`)
+
+| 功能模块 | 接口路径 | 请求方式 | 核心参数 |
+| --- | --- | --- | --- |
+| **分类列表** | `/api/items/categories` | `GET` | - |
+| **物品添加** | `/api/items/add_item` | `POST` | `openid`, `purchase_price`等 |
+| **我的物品** | `/api/items/user/<openid>` | `GET` | `openid` |
+| **数据导出** | `/api/export/export-items/<openid>` | `GET` | `openid` |
+
+---
+
+## 🚀 快速开始
+
+### 0. 环境要求
+
+* **Python**: 3.8 及以上版本
+* **MySQL**: 5.7 或 8.0+
+
+### 1. 获取源码
 
 ```bash
 git clone https://github.com/ucmao/jbh-ucmao-backend.git
 cd jbh-ucmao-backend
+
 ```
 
 ### 2. 安装依赖
 
 ```bash
 pip install -r requirements.txt
+
 ```
 
-### 3. 配置环境变量
+### 3. 环境配置 (.env)
 
-复制 `.env.example` 为 `.env` 并修改配置：
+复制 `.env.example` 为 `.env` 并配置您的环境变量：
 
-```bash
-cp .env.example .env
-# 编辑 .env 文件，设置数据库、微信小程序等配置
+```ini
+# 微信小程序配置
+WECHAT_APP_ID = your_appid_here
+WECHAT_APP_SECRET = your_appsecret_here
+
+# MYSQL 数据库配置
+DB_HOST = localhost
+DB_PORT = 3306
+DB_NAME = ucmao_jbh
+DB_USER = root
+DB_PASSWORD = your_password_here
+
 ```
 
 ### 4. 初始化数据库
 
-#### 创建数据库
-
-首先，创建一个MySQL数据库：
-
 ```bash
-mysql -u root -p
-CREATE DATABASE ucmao_jbh CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-EXIT;
-```
-
-#### 导入数据库结构
-
-使用 `schema.sql` 文件初始化数据库表结构：
-
-```bash
+# 创建数据库
+mysql -u root -p -e "CREATE DATABASE IF NOT EXISTS ucmao_jbh CHARACTER SET utf8mb4;"
+# 导入表结构
 mysql -u root -p ucmao_jbh < schema.sql
+
 ```
 
-### 5. 启动服务
+### 5. 启动应用
 
-#### 开发模式
+**开发模式：**
 
 ```bash
 python app.py
+
 ```
 
-服务将在 `http://0.0.0.0:5007` 启动。
-
-#### 生产模式
-
-使用 Gunicorn：
+**生产模式 (Gunicorn)：**
 
 ```bash
 gunicorn -w 4 -b 0.0.0.0:5007 app:app
+
 ```
 
-或使用 Uvicorn：
+---
 
-```bash
-uvicorn app:app --host 0.0.0.0 --port 5007
+## 💡 开发者必看：目录说明
+
+```text
+jbh-ucmao-backend/
+├── api/                    # 路由层 (按业务模块划分子目录)
+│   ├── items/              # 核心：物品管理逻辑
+│   ├── login/              # 核心：微信认证逻辑
+│   └── report/             # 核心：数据统计报表
+├── configs/                # 配置文件 (常量与日志)
+├── static/                 # 静态资源 (图标、默认图片)
+├── app.py                  # 程序入口
+├── requirements.txt        # 依赖列表
+└── schema.sql              # 数据库初始化脚本
+
 ```
 
-## 配置说明
+---
 
-### 环境变量
+## ⚖️ 开源协议 & 免责声明
 
-| 配置项 | 描述 | 默认值 |
-|--------|------|--------|
-| BASE_URL | 服务基础 URL | - |
-| WECHAT_APP_ID | 微信小程序 AppID | - |
-| WECHAT_APP_SECRET | 微信小程序 AppSecret | - |
-| DB_HOST | 数据库主机 | - |
-| DB_PORT | 数据库端口 | - |
-| DB_USER | 数据库用户名 | - |
-| DB_PASSWORD | 数据库密码 | - |
-| DB_NAME | 数据库名称 | - |
-| DB_CHARSET | 数据库字符集 | utf8mb4 |
+1. 本项目基于 **[MIT LICENSE](LICENSE)** 协议开源。
+2. **免责声明**：本项目主要用于学习交流。在使用导出等功能处理敏感财务数据时，请确保服务器环境的安全性。
 
-## API 文档
+---
 
-### 登录模块
+**记宝盒** - 记录物品，留住生活。
+[提交 Bug](https://www.google.com/search?q=https://github.com/ucmao/jbh-ucmao-backend/issues) | [联系作者](mailto:leoucmao@gmail.com)
 
-#### 微信登录
-```
-POST /api/login
-```
-
-参数：
-- `code`: 微信小程序登录 code
-
-返回：
-- `openid`: 用户唯一标识
-
-### 物品管理模块
-
-#### 获取分类列表
-```
-GET /api/items/categories
-```
-
-返回：分类列表及图标 URL
-
-#### 添加物品
-```
-POST /api/items/add_item
-```
-
-参数：
-- `openid`: 用户唯一标识
-- `category`: 分类
-- `item_name`: 物品名称
-- `purchase_date`: 购买日期
-- `purchase_price`: 购买价格
-- `use_count_value`: 使用次数
-- `daily_price`: 日均价格
-- `retirement_date`: 退役日期
-- `retirement_price`: 退役价格
-- `description`: 描述
-- `is_favorite`: 是否收藏
-
-#### 获取用户物品列表
-```
-GET /api/items/user/<openid>
-```
-
-返回：用户所有物品列表
-
-#### 更新物品
-```
-PUT /api/items/item/<item_id>
-```
-
-参数：
-- 同添加物品（可选）
-
-#### 删除物品
-```
-DELETE /api/items/item/<item_id>
-```
-
-### 用户管理模块
-
-#### 更新用户信息
-```
-POST /api/users/update
-```
-
-参数：
-- `openid`: 用户唯一标识
-- `username`: 用户名
-- `avatar`: 头像 URL
-
-### 数据导出模块
-
-#### 导出用户物品为 CSV
-```
-GET /api/export/export-items/<openid>
-```
-
-返回：CSV 文件下载
-
-### 数据统计模块
-
-#### 生成用户物品统计报告
-```
-GET /api/report/report-items/<openid>
-```
-
-返回：用户物品统计报告
-
-## 开发指南
-
-### 日志
-
-日志文件位于 `logs/jbh_ucmao.log`，包含应用运行状态、错误信息等。
-
-### 静态资源
-
-图标等静态资源位于 `static/icons/` 目录，按分类组织。
-
-## 贡献
-
-欢迎提交 Issue 和 Pull Request！
-
-### 提交规范
-
-- 提交代码前请确保通过语法检查
-- 提交信息请使用清晰的描述，如：`fix: 修复数据库连接错误`
-
-## 许可证
-
-本项目采用 MIT 许可证，详情请见 [LICENSE](LICENSE) 文件。
-
-## 联系方式
-
-- GitHub: [ucmao](https://github.com/ucmao)
-- Email: leoucmao@gmail.com
+---
