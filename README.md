@@ -9,9 +9,9 @@
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE) [![Python Version](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/) [![MySQL](https://img.shields.io/badge/database-MySQL-orange.svg)](https://www.mysql.com/) [![Flask](https://img.shields.io/badge/framework-Flask%203.0-lightgrey.svg)](https://flask.palletsprojects.com/)
 
 <p align="center">
-<a href="#📱-立即体验">在线体验</a> •
-<a href="#💎-核心业务逻辑">业务逻辑</a> •
-<a href="#🚀-快速开始">部署指南</a> •
+<a href="#-立即体验">在线体验</a> •
+<a href="#-核心业务逻辑">业务逻辑</a> •
+<a href="#-快速开始">部署指南</a> •
 <a href="[https://github.com/ucmao/jbh-ucmao-backend/issues](https://www.google.com/search?q=https://github.com/ucmao/jbh-ucmao-backend/issues)">提交Bug</a>
 </p>
 
